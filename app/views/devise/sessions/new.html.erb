@@ -1,26 +1,84 @@
-<h2>Log in</h2>
+<nav class="flex bg-blue-800 h-20 px-4 text-white">
+  <h1 class="flex-grow self-end text-4xl font-extrabold mx-2 my-2">Social Network</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "flex gap-x-4" }) do |f| %>
+    <div class="field self-center">
+      <%= f.label :email, class: "text-xs" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-black box-border border border-blue-900" %><br/><br />
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="field self-center">
+      <%= f.label :password, class: "text-xs" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "text-black box-border border border-blue-900" %><br />
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-xs" %><br />
+      <% end %>
+      <% if devise_mapping.rememberable? %>
+        <%= f.hidden_field :remember_me, value: true %>
+      <% end %>
+    </div>
+
+    <div class="self-center">
+      <%= f.submit "Log in", class: "bg-blue-700 active:bg-blue-900 border border-blue-900 text-xs font-bold px-2 py-1" %>
     </div>
   <% end %>
+</nav>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+<section class="m-4">
+  <%= render partial: "alerts" %>
+</section>
 
-<%= render "devise/shared/links" %>
+<main class="flex">
+  <section class="flex-1 py-14 px-8">
+    <h2 class="text-3xl font-semibold">Connect with friends and the world around you.</h2>
+
+    <div class="mt-4">
+      <h3 class="text-lg font-light">
+        <span class="inline-block group cursor-pointer">
+          <span>We won't spy on you</span>
+          <span class="relative">
+            <div class="absolute left-2 -bottom-0.5 opacity-0 group-hover:opacity-100">
+              <span class="relative z-10 px-2 py-1 text-xs text-white bg-black whitespace-nowrap rounded-sm">You are the only owner of your data and you decide on their privacy level</span>
+            </div>
+          </span>
+        </span>
+      </h3>
+      <h3 class="text-lg font-light">
+        <span class="inline-block group cursor-pointer">
+          <span>We won't sell your data</span>
+          <span class="relative">
+            <div class="absolute left-2 -bottom-0.5 opacity-0 group-hover:opacity-100">
+              <span class="relative z-10 px-2 py-1 text-xs text-white bg-black whitespace-nowrap rounded-sm">Our business model is transparent and we won't hide anything from you</span>
+            </div>
+          </span>
+        </span>
+      </h3>
+      <h3 class="text-lg font-light">
+        <span class="inline-block group cursor-pointer">
+          <span>We are apolitical</span>
+          <span class="relative">
+            <div class="absolute left-2 -bottom-0.5 opacity-0 group-hover:opacity-100">
+              <span class="relative z-10 px-2 py-1 text-xs text-white bg-black whitespace-nowrap rounded-sm">All posts will follow the same rules regardless their political orientation</span>
+            </div>
+          </span>
+        </span>
+      </h3>
+    </div>
+  </section>
+  <aside class="flex-1 py-3 px-8">
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <h1 class="text-4xl font-semibold">Sign up</h1>
+      <h2 class="text-xl font-light mt-2">It's free for individual accounts.</h2>
+      <div class="text-center mt-12">
+        <%= link_to "Create Account", new_registration_path(resource_name), class: "px-4 py-2 bg-green-500 active:bg-green-600 border border-green-600 text-white font-bold" %>
+      </div>
+
+      <hr class="mt-8 mb-5">
+
+      <span class="text-sm">
+        <%= link_to "Create a Page", "#", class: "font-bold" %> for a business, a public figure or an association
+      </span>
+    <% end %>
+  </aside>
+</main>
