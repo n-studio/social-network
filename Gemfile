@@ -53,6 +53,8 @@ group :development do
   gem 'spring'
   # Run through Procfile
   gem 'foreman'
+  # Preview emails in browser
+  gem 'letter_opener'
 end
 
 group :test do
