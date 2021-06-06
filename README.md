@@ -1,4 +1,4 @@
-# Social Network
+# the Social Network
 
 ## Stack
 

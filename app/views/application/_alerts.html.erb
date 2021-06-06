@@ -1,16 +1,16 @@
 <% if notice %>
-  <div class="relative py-3 pl-4 pr-10 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert" data-controller="alerts">
+  <div class="relative py-3 pl-4 pr-10 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert" data-controller="alert" data-transition-in="transition: 0.5s; transform:translate(0, 0)" data-transition-out="transition: 0.5s; transform:translate(100vw, 0)" data-delay-out="600">
     <p><%= notice %></p>
-    <span class="absolute inset-y-0 right-0 flex items-center mr-4 cursor-pointer" data-action="click->alerts#close">
+    <span class="absolute inset-y-0 right-0 flex items-center mr-4 cursor-pointer" data-action="alert#close">
       <%= heroicon "x", options: { class: "w-4 h-4 fill-current" } %>
     </span>
   </div>
 <% end %>
 
 <% if alert %>
-  <div class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg" role="alert" data-controller="alerts">
+  <div class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg" role="alert" data-controller="alert" data-transition-in="transition: 0.5s; transform:translate(0, 0)" data-transition-out="transition: 0.5s; transform:translate(100vw, 0)" data-delay-out="600">
     <p><%= alert %></p>
-    <span class="absolute inset-y-0 right-0 flex items-center mr-4 cursor-pointer" data-action="click->alerts#close">
+    <span class="absolute inset-y-0 right-0 flex items-center mr-4 cursor-pointer transition ease-in-out duration-100" data-action="click->alert#close">
       <%= heroicon "x", options: { class: "w-4 h-4 fill-current" } %>
     </span>
   </div>

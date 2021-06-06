@@ -32,7 +32,8 @@ gem 'hotwire-rails'
 
 # Tailwind CSS
 gem 'tailwindcss-rails'
-gem 'heroicon'
+gem 'heroicon', github: 'bharget/heroicon'
+gem 'identicon'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -55,6 +56,10 @@ group :development do
   gem 'foreman'
   # Preview emails in browser
   gem 'letter_opener'
+  # Livereload
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'rack-livereload'
 end
 
 group :test do

@@ -11,6 +11,7 @@
     "postcss": "^7",
     "stimulus": "^2.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tailwindcss-stimulus-components": "git+https://github.com/n-studio/tailwindcss-stimulus-components.git#feat/allow-alert-custom-transition",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },

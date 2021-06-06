@@ -1,0 +1,7 @@
+.devise {
+  .field {
+    input[type=text], input[type=email], input[type=password] {
+      @apply text-black box-border border border-gray-200;
+    }
+  }
+}

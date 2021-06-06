@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TimelinesControllerTest < ActionDispatch::IntegrationTest
+class NewsfeedsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup

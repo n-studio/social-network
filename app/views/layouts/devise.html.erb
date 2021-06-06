@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SocialNetwork</title>
+    <title>the Social Network</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,19 @@
   </head>
 
   <body class="bg-blue-50">
-    <%= yield %>
+    <nav class="flex bg-blue-800 h-20 px-4 text-white">
+      <h1 class="flex-grow self-end text-4xl font-extrabold mx-2 my-2 no-underline-links">
+        <%= link_to "the Social Network", root_path %>
+      </h1>
+
+      <%= yield :navbar %>
+    </nav>
+
+    <section class="m-4">
+      <%= render partial: "alerts" %>
+    </section>
+    <div class="devise">
+      <%= yield %>
+    </div>
   </body>
 </html>

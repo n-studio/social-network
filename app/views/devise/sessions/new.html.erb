@@ -1,6 +1,4 @@
-<nav class="flex bg-blue-800 h-20 px-4 text-white">
-  <h1 class="flex-grow self-end text-4xl font-extrabold mx-2 my-2">Social Network</h1>
-
+<% content_for :navbar do %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "flex gap-x-4" }) do |f| %>
     <div class="field self-center">
       <%= f.label :email, class: "text-xs" %><br />
@@ -23,11 +21,7 @@
       <%= f.submit "Log in", class: "bg-blue-700 active:bg-blue-900 border border-blue-900 text-xs font-bold px-2 py-1" %>
     </div>
   <% end %>
-</nav>
-
-<section class="m-4">
-  <%= render partial: "alerts" %>
-</section>
+<% end %>
 
 <main class="flex">
   <section class="flex-1 py-14 px-8">
