@@ -1,0 +1,6 @@
+<main class="flex-grow pt-2 pb-2 ml-2 mr-2 md:ml-0 sm:mr-0">
+  <%= render partial: "alerts" %>
+  <div class="posts">
+    <%= render partial: "posts/post", locals: { post: @post } %>
+  </div>
+</main>

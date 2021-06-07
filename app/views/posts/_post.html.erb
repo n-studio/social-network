@@ -1,0 +1,153 @@
+<article class="bg-white border border-gray-200 rounded mt-2">
+  <header class="flex px-2 pt-2">
+    <%= image_tag Identicon.data_url_for(post.user.display_name, 80, [255, 255, 255]), size: "40x40", class: "w-10 h-10 rounded-full mr-2" %>
+    <div class="flex-grow">
+      <div class="text-sm font-semibold"><%= post.user.display_name %></div>
+      <div class="text-xs mt-0.5">
+        <%= link_to time_ago_in_words(post.created_at), post_path(post) %>
+        &middot;
+        <%= heroicon "globe", options: { width: 14, height: 14, class: "mr-1 inline mb-0.5" }, path_options: { stroke_width: 1.5 } %>
+      </div>
+    </div>
+    <div class="relative" data-controller="dropdown">
+      <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="outline-none" aria-label="More options">
+        <%= heroicon "dots-horizontal", options: { width: 20, height: 20, class: "mr-1 inline mb-0.5" }, path_options: { stroke_width: 1.5 } %>
+      </div>
+      <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden w-72 z-50">
+        <div class="bg-white text-gray-600 shadow rounded border overflow-hidden text-sm font-medium no-underlined-links">
+          <div class="flex px-3 py-2 hover:bg-gray-100">
+            <%= heroicon "bookmark", variant: :outline, options: { width: 20, height: 20, class: "w-5 mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+            Save
+          </div>
+          <%= link_to edit_post_path(post), class: "flex px-3 py-2 hover:bg-gray-100" do %>
+            <%= heroicon "pencil", variant: :outline, options: { width: 20, height: 20, class: "w-5 mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+            Edit
+          <% end if current_user && post.user == current_user %>
+          <div class="flex px-3 py-2 hover:bg-gray-100">
+            <%= heroicon "globe", variant: :outline, options: { width: 20, height: 20, class: "w-5 mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+            Edit audience
+          </div>
+          <div class="flex px-3 py-2 hover:bg-gray-100">
+            <%= heroicon "bell", variant: :outline, options: { width: 20, height: 20, class: "w-6 mr-1.5 text-center" }, path_options: { stroke_width: 1.5 } %>
+            Turn on/off Notifications for this Post
+          </div>
+          <%= link_to post_path(post), method: :delete, class: "flex px-3 py-2 hover:bg-gray-100", data: { confirm: "Are you sure?" } do %>
+            <%= heroicon "trash", variant: :outline, options: { width: 20, height: 20, class: "w-5 mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+            Delete
+          <% end if current_user && post.user == current_user %>
+          <div class="flex px-3 py-2 hover:bg-gray-100">
+            <%= heroicon "eye-off", variant: :outline, options: { width: 20, height: 20, class: "w-5 mr-1.5 text-center" }, path_options: { stroke_width: 1.5 } %>
+            Hide Post
+          </div>
+          <div class="flex px-3 py-2 hover:bg-gray-100">
+            <%= heroicon "eye-off", variant: :outline, options: { width: 20, height: 20, class: "w-5 mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+            Hide all from ...
+          </div>
+          <div class="flex px-3 py-2 hover:bg-gray-100">
+            <%= heroicon "shield-exclamation", variant: :outline, options: { width: 20, height: 20, class: "w-5 mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+            Report post to group admin/admin
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="text-sm mx-2 my-2"><%= post.content %></div>
+    <%= image_tag "https://via.placeholder.com/650x350", class: "w-full" %>
+    <div class="bg-gray-100 px-4 py-2 border-b border-gray-200">
+      <div class="text-gray-500 font-light uppercase text-xs">Source</div>
+      <div class="font-medium text-gray-900">Title</div>
+      <div class="text-gray-500 font-light text-sm">Subtitle</div>
+    </div>
+    <div class="flex px-4 py-2 text-sm">
+      <div class="flex-grow">👍 Tom and 2 others</div>
+      <div>10 comments</div>
+    </div>
+  </main>
+  <hr class="mx-auto w-11/12">
+  <footer class="flex py-2 border-b">
+    <div class="flex-1 relative text-center" data-controller="dropdown">
+      <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="flex justify-center outline-none text-sm font-medium">
+        <%= heroicon "thumb-up", variant: :outline, options: { width: 20, height: 20, class: "mr-1 inline mb-0.5" }, path_options: { stroke_width: 1.5 } %>
+        <div>Like</div>
+      </div>
+      <div data-dropdown-target="menu" class="absolute -left-1/4 mt-2 hidden z-50">
+        <div class="bg-white shadow rounded-xl border overflow-hidden p-2 w-72">
+          👍
+          🥰
+          🎉
+          🫂
+          🤣
+          😮
+          🤔
+          😑
+          😢
+          😤
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 text-center">
+      <div class="flex justify-center outline-none text-sm font-medium">
+        <%= heroicon "chat-alt", variant: :outline, options: { width: 20, height: 20, class: "mr-1 inline mb-0.5" }, path_options: { stroke_width: 1.5 } %>
+        Comment
+      </div>
+    </div>
+    <div class="flex-1 text-center">
+      <div class="flex justify-center outline-none text-sm font-medium">
+        <%= heroicon "share", variant: :outline, options: { width: 20, height: 20, class: "mr-1 inline mb-0.5" }, path_options: { stroke_width: 1.5 } %>
+        Share
+      </div>
+    </div>
+  </footer>
+  <aside class="comments pt-3">
+    <div class="flex px-2 pb-1">
+      <%= image_tag Identicon.data_url_for(post.user.display_name, 80, [255, 255, 255]), class: "h-8 w-8 rounded-full block mt-1.5 mr-1.5" %>
+      <div>
+        <div class="bg-gray-100 rounded-full px-3 py-1 text-sm mb-0.5">
+          <span class="font-medium text-blue-700">Name</span>
+          Comment
+          <%# ...
+            Hide
+            Report %>
+        </div>
+        <div class="text-xs ml-3">
+          Like
+          &middot;
+          Comment
+          &middot;
+          1 min
+        </div>
+      </div>
+    </div>
+    <div class="flex pl-12 p-2">
+      <%= image_tag Identicon.data_url_for(post.user.display_name, 80, [255, 255, 255]), class: "h-5 w-5 rounded-full block mt-1.5 mr-1.5" %>
+      <div>
+        <div class="bg-gray-100 rounded-full px-3 py-1 text-sm mb-0.5">
+          <span class="font-medium text-blue-700">Name</span>
+          Comment
+          <%# ...
+            Hide
+            Report %>
+        </div>
+        <div class="text-xs ml-3">
+          Like
+          &middot;
+          Comment
+          &middot;
+          1 min
+        </div>
+      </div>
+    </div>
+  </aside>
+  <form class="flex p-2 pt-1">
+    <%= image_tag Identicon.data_url_for(post.user.display_name, 80, [255, 255, 255]), class: "h-8 w-8 rounded-full block mt-1.5 mr-1.5" %>
+    <div class="flex-grow flex border bg-gray-100 border-gray-300 rounded-lg px-2 width-full">
+      <div class="grow-wrap flex-grow text-sm">
+        <textarea rows="1" class="outline-none bg-transparent" placeholder="Write a comment..." onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+      </div>
+
+      <%= heroicon "photograph", variant: :outline, options: { width: 20, height: 20, class: "self-end mr-1 mb-2" }, path_options: { stroke_width: 1.5 } %>
+    </div>
+  </form>
+</article>

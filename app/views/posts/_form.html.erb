@@ -1,0 +1,29 @@
+<%= form_with(model: post) do |form| %>
+  <header class="text-xs font-semibold bg-gray-100 p-2 pb-1.5 border-b rounded-t">
+    <%= post.new_record? ? "Create Post" : "Edit Post" %>
+  </header>
+  <section class="flex p-2 pb-1 mb-1">
+    <%= image_tag Identicon.data_url_for(current_user.display_name, 80, [255, 255, 255]), size: "40x40", class: "w-10 h-10 rounded-full mr-2" %>
+    <div class="flex-grow text-sm" style="width: calc(100% - 60px)">
+      <%= form.rich_text_area :content, placeholder: "What's on your mind?" %>
+    </div>
+  </section>
+  <hr class="mx-auto w-11/12">
+  <section class="flex gap-x-2 px-3 py-2">
+    <div class="flex bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-1 text-xs font-semibold">
+      <%= heroicon "tag", variant: :outline, options: { width: 20, height: 20, class: "mr-1" }, path_options: { stroke_width: 1.5 } %>
+      <div class="self-center">Tag friends</div>
+    </div>
+    <div class="flex bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-1 text-xs font-semibold">
+      <%= heroicon "location-marker", variant: :outline, options: { width: 20, height: 20, class: "mr-1" }, path_options: { stroke_width: 1.5 } %>
+      <div class="self-center">Check in</div>
+    </div>
+    <div class="flex bg-gray-100 hover:bg-gray-200 rounded-full px-2 py-1 text-xs font-semibold">
+      <%= heroicon "emoji-happy", variant: :outline, options: { width: 20, height: 20, class: "mr-1" }, path_options: { stroke_width: 1.5 } %>
+      <div class="self-center">Feeling</div>
+    </div>
+  </section>
+  <footer class="p-2 border-t bg-gray-50 rounded-b">
+    <%= form.submit post.new_record? ? "Post" : "Update Post", class: "bg-blue-700 text-white w-full border border-blue-900 text-sm font-medium p-1 rounded-sm active:bg-blue-900" %>
+  </footer>
+<% end %>

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "newsfeeds#show"
+  resources :posts, only: %i[show create edit update destroy]
 end

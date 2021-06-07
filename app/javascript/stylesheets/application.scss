@@ -1,13 +1,15 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 @import "devise";
+@import "actiontext";
 
 a:hover {
   @apply underline;
 }
 
-.no-underline-links {
+.no-underlined-links {
   a:hover {
     @apply no-underline;
   }
@@ -15,6 +17,24 @@ a:hover {
 
 .profiler-results .profiler-button, .profiler-results .profiler-controls {
   background-color: #ffffffaa;
+}
+
+trix-toolbar {
+  .trix-button--icon-bullet-list, .trix-button--icon-number-list {
+    @apply block sm:hidden xl:block;
+  }
+
+  .trix-button--icon-decrease-nesting-level, .trix-button--icon-increase-nesting-level {
+    @apply hidden xl:block;
+  }
+
+  .trix-button--icon-code {
+    @apply block md:hidden lg:block;
+  }
+
+  .trix-button-group.trix-button-group--history-tools {
+    @apply flex sm:hidden lg:flex;
+  }
 }
 
 // https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/
