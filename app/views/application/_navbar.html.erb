@@ -1,0 +1,38 @@
+<nav class="bg-blue-800 text-white text-sm h-9 no-underlined-links">
+  <div class="container mx-auto flex gap-x-2">
+    <div class="font-bold py-2 whitespace-nowrap"><%=link_to "the Social Network", root_path %></div>
+    <div class="flex-grow md:hidden"></div>
+    <div class="flex-grow py-1.5 hidden md:block">
+      <form>
+        <div class="flex bg-white rounded-sm h-6 text-black px-1 lg:w-72">
+          <input type="text" placeholder="Search" class="flex-grow outline-none" />
+          <%= heroicon "search", variant: :outline, options: { width: 16, height: 16, class: "self-center text-gray-600" }, path_options: { stroke_width: 2.5 } %>
+        </div>
+      </form>
+    </div>
+    <div class="flex flex-nowrap">
+      <%= image_tag Identicon.data_url_for(current_user.display_name, 80, [255, 255, 255]), class: "h-6 w-6 rounded-full block mt-1.5 mr-1.5" %>
+      <div class="font-medium py-2 whitespace-nowrap"><%= current_user.display_name %></div>
+    </div>
+    <div class="text-xl font-extralight text-blue-900 py-0.5">|</div>
+    <div class="font-medium py-2">Home</div>
+    <div class="text-xl font-extralight text-blue-900 py-0.5">|</div>
+    <div class="font-medium py-2 whitespace-nowrap">Find friends</div>
+    <div class="text-xl font-extralight text-blue-900 py-0.5">|</div>
+    <div class="py-2"><%= heroicon "users", options: { width: 20, height: 20 } %></div>
+    <div class="py-2"><%= heroicon "chat-alt-2", options: { width: 20, height: 20 } %></div>
+    <div class="py-2"><%= heroicon "bell", options: { width: 20, height: 20 } %></div>
+    <div class="text-xl font-extralight text-blue-900 py-0.5">|</div>
+    <div class="py-2"><%= heroicon "question-mark-circle", options: { width: 20, height: 20 } %></div>
+    <div class="relative py-2" data-controller="dropdown">
+      <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="outline-none">
+        <%= heroicon "chevron-down", options: { width: 20, height: 20 } %>
+      </div>
+      <div data-dropdown-target="menu" class="absolute right-0 w-48 mt-2 hidden z-50">
+        <div class="bg-white text-gray-600 shadow rounded border overflow-hidden">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "block px-4 py-2 hover:bg-gray-100", role: "menuitem" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

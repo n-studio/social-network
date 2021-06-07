@@ -11,6 +11,11 @@
   </head>
 
   <body class="bg-gray-100">
-    <%= yield %>
+    <%= render partial: "navbar" %>
+    <section class="flex container gap-x-2 mx-auto text-gray-600">
+      <%= render partial: "left_bar" %>
+      <%= yield %>
+      <%= render partial: "right_bar" %>
+    </section>
   </body>
 </html>

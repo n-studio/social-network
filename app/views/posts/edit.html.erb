@@ -1,9 +1,6 @@
 <main class="flex-grow pt-2 pb-2 ml-2 mr-2 md:ml-0 sm:mr-0">
   <%= render partial: "alerts" %>
   <section class="bg-white border border-gray-200 rounded mb-2">
-    <%= render partial: "posts/form", locals: { post: @new_post } %>
+    <%= render partial: "posts/form", locals: { post: @post } %>
   </section>
-  <div class="posts">
-    <%= render partial: "posts/post", collection: @posts %>
-  </div>
 </main>

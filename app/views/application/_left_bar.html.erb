@@ -1,0 +1,45 @@
+<nav class="flex-none w-40 lg:w-52 text-sm p-1 pt-3 pr-0 hidden md:block">
+  <div class="flex mb-1 p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= image_tag Identicon.data_url_for(current_user.display_name, 80, [255, 255, 255]), size: "20x20", class: "w-5 h-5 rounded-full mr-1.5" %>
+    <div><%= current_user.display_name %></div>
+  </div>
+  <div class="flex p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= heroicon "newspaper", variant: :outline, options: { width: 20, height: 20, class: "mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+    News Feed
+  </div>
+  <h1 class="font-bold text-xs mt-3 mb-0.5 ml-1.5">Shortcuts</h1>
+  <h1 class="font-bold text-xs mt-3 mb-0.5 ml-1.5">Explore</h1>
+  <div class="flex p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= heroicon "calendar", variant: :outline, options: { width: 20, height: 20, class: "mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+    <div class="flex-grow">Events</div>
+    <div class="self-center text-xs font-semibold text-gray-400 mr-0.5">0</div>
+  </div>
+  <div class="flex p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= heroicon "user-group", variant: :outline, options: { width: 20, height: 20, class: "mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+    <div class="flex-grow">Groups</div>
+  </div>
+  <div class="flex p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= heroicon "flag", variant: :outline, options: { width: 20, height: 20, class: "mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+    <div class="flex-grow">Pages</div>
+  </div>
+  <div class="flex p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= heroicon "users", variant: :outline, options: { width: 20, height: 20, class: "mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+    <div class="flex-grow">Friend Lists</div>
+  </div>
+  <div class="flex p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= heroicon "bookmark", variant: :outline, options: { width: 20, height: 20, class: "mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+    <div class="flex-grow">Saved</div>
+  </div>
+  <div class="flex p-1 border border-transparent rounded hover:bg-gray-50 hover:border-gray-200">
+    <%= heroicon "clock", variant: :outline, options: { width: 20, height: 20, class: "mr-1.5" }, path_options: { stroke_width: 1.5 } %>
+    <div class="flex-grow">Memories</div>
+  </div>
+
+  <div class="text-xs mt-8 ml-1.5">
+    Privacy &middot;
+    Terms &middot;
+    Cookies &middot;
+    More &middot;
+    &copy; You
+  </div>
+</nav>
