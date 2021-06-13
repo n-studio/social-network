@@ -1,6 +1,6 @@
 .devise {
   .field {
-    input[type=text], input[type=email], input[type=password] {
+    input[type=text], input[type=email], input[type=password], input[type=date], .select-wrap {
       @apply text-black box-border border border-gray-200;
     }
   }

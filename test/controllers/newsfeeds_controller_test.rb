@@ -4,7 +4,7 @@ class NewsfeedsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup
-    sign_in users(:user)
+    sign_in users(:one)
   end
 
   test "returns 200" do
