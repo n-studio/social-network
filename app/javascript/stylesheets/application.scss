@@ -9,6 +9,10 @@ a:hover {
   @apply underline;
 }
 
+select {
+  @apply appearance-none;
+}
+
 .no-underlined-links {
   a:hover {
     @apply no-underline;

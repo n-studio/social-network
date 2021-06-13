@@ -4,7 +4,7 @@ class PostsTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
 
   setup do
-    sign_in users(:user)
+    sign_in users(:one)
     @post = posts(:one)
   end
 
